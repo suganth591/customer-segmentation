@@ -1,0 +1,154 @@
+<iframe src='name.html' style='width:100%'></iframe>
+<div class="row">
+  <div class="column tooltip">
+  <span class="tooltiptext">Distplot</span>
+    <img src="a.png" alt="Nature" onclick="myFunction(this);" title="distplot">
+  </div>
+  <div class="column tooltip">
+  <span class="tooltiptext">CountPlot</span>
+    <img src="b.png" alt="Snow" onclick="myFunction(this);">
+  </div>
+  <div class="column tooltip">
+  <span class="tooltiptext">Reg Plot</span>
+    <img src="c.png" alt="Mountains" onclick="myFunction(this);">
+  </div>
+  <div class="column tooltip">
+  <span class="tooltiptext">ScatterPlot (Age Vs Annual Income)</span>
+    <img src="d.png" alt="Lights" onclick="myFunction(this);">
+  </div>
+</div>
+<div class="row">
+  <div class="column tooltip">
+  <span class="tooltiptext">Scatter Plot (Annual Income vs Spending Score)</span>
+    <img src="e.png" alt="Nature" onclick="myFunction(this);">
+  </div>
+  <div class="column tooltip">
+  
+    <img src="i.png" alt="Snow" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="j.png" alt="Mountains" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="h.png" alt="Lights" onclick="myFunction(this);">
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+    <img src="i.png" alt="Nature" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="j.png" alt="Snow" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="k.png" alt="Mountains" onclick="myFunction(this);">
+  </div>
+  <div class="column" style="background:grey"; onclick="window.open('temp-plot.html','3D plot',width=10,height=10);">
+    <h2 style="color:white;margin-top:25%;margin-left:25%;">Open 3D graph</h2>
+  </div>
+</div>
+</div>
+
+<br><br><br><br>
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="height:100%;width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<style>
+.column {
+  border:2px solid black;
+  float: left;
+  width: 23%;
+  height:30%;
+  padding: px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8;
+  width:90%;
+  height:100%;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+padding:20px;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  width:90%;
+  position: relative;
+  display: none;
+}
+
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -60px;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+
+<script>
+function myFunction(imgs) {
+  // Get the expanded image
+  var expandImg = document.getElementById("expandedImg");
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = imgs.alt;
+  // Show the container element (hidden with CSS)
+  expandImg.parentElement.style.display = "block";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
